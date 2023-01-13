@@ -36,5 +36,17 @@ RSpec.describe Department do
         expect(department.expenses).to eq(125)
 			end
     end
+
+		context '#employee_raise' do
+	    it 'can give an employee a raise and document it as an expense' do
+        department.hire(bobbi)
+        department.hire(aaron)
+        
+        department.employee_raise(bobbi, 100)
+        
+        expect(department.expenses).to eq(100)
+        expect(bobbi.salary).to eq(100100)
+      end
+		end
   end
 end
