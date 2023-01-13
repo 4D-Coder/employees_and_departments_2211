@@ -27,5 +27,14 @@ RSpec.describe Department do
         expect(department.employees).to eq([bobbi, aaron])
 			end
     end
+
+    context '#expense' do
+	    it 'has expenses that can be added to' do
+        department.expense(100)
+				department.expense(25)
+
+        expect(department.expenses).to eq(125)
+			end
+    end
   end
 end
