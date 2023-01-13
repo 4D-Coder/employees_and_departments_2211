@@ -12,9 +12,9 @@ class Budget
     @departments.push(department)
   end
 
-  def lowest_expenses
+  def expenses_under(amount)
     @departments.find_all do |department|
-      department.expenses < 500
+      department.expenses < amount
     end
   end
 
@@ -30,7 +30,7 @@ class Budget
         end
       end
     end
-    
+
     employee_salaries
   end
 end
