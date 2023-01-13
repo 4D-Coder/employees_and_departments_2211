@@ -21,10 +21,10 @@ RSpec.describe Department do
 
     context '#hire' do
 	    it 'can hire employees' do
-        customer_service.hire(bobbi)
-        customer_service.hire(aaron)
+        department.hire(bobbi)
+        department.hire(aaron)
 				
-        expect(customer_service.employees).to eq([bobbi, aaron])
+        expect(department.employees).to eq([bobbi, aaron])
 			end
     end
   end
