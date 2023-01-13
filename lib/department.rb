@@ -16,4 +16,9 @@ class Department
   def expense(amount)
     @expenses += amount
   end
+
+  def employee_raise(employee, amount)
+    employee.give_raise(amount)
+    expense(amount)
+  end
 end
