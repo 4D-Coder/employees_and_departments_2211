@@ -55,5 +55,25 @@ RSpec.describe Budget do
         expect(budget.lowest_expenses).to eq([department_1, department_3])
       end
     end
+
+    context '#employee_salaries' do
+	    it "can list all employees' salaries" do
+        budget.add_department(department_1)
+        budget.add_department(department_2)
+        budget.add_department(department_3)
+
+        department_1.hire(bobbi)
+        department_2.hire(dimitri)
+        department_3.hire(echo)
+
+        expected_hash = {
+          department_1 => {:name => "Bobbi Jaeger", :salary => 100000},
+          department_2 => {:name => "Dimitri Rimor", :salary => 85000},
+          department_3 => {:name => "Echo Farris", :salary => 120000}
+        }
+
+        expect(budget.employee_salaries).to eq(expected_hash)
+			end
+    end
   end
 end
