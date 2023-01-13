@@ -50,7 +50,7 @@ RSpec.describe Budget do
 
         department_1.employee_raise(bobbi, 499)
         department_2.employee_raise(dimitri, 500)
-        department_3.employee_raise(echo, 500)
+        department_3.employee_raise(echo, 450)
 
         expect(budget.lowest_expenses).to eq([department_1, department_3])
       end
