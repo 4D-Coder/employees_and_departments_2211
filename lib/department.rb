@@ -11,6 +11,7 @@ class Department
 
   def hire(employee)
     @employees.push(employee)
+    require 'pry'; binding.pry
   end
 
   def expense(amount)
