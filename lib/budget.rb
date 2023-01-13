@@ -20,9 +20,14 @@ class Budget
 
   def employee_salaries
     employee_salaries = Hash.new { |dpt, key| dpt[key] = [] }
+
     @departments.each do |department|
       department.employees.each do |employee|
-        employee_salaries[department] = {name: employee.name, salary: employee.salary} 
+        if !employee_salaries.keys.include?(department)
+          employee_salaries[department] = { employee.name => employee.salary }
+        else
+          employee_salaries[department][employee.name] = employee.salary
+        end
       end
     end
     

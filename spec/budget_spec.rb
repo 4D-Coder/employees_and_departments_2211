@@ -65,11 +65,15 @@ RSpec.describe Budget do
         department_1.hire(bobbi)
         department_2.hire(dimitri)
         department_3.hire(echo)
+        department_3.hire(aaron)
 
         expected_hash = {
-          department_1 => {:name => "Bobbi Jaeger", :salary => 100000},
-          department_2 => {:name => "Dimitri Rimor", :salary => 85000},
-          department_3 => {:name => "Echo Farris", :salary => 120000}
+          department_1 => {"Bobbi Jaeger" => 100000},
+          department_2 => {"Dimitri Rimor" => 85000},
+          department_3 => {
+            "Echo Farris" => 120000,
+            "Aaron Tanaka" => 90000
+          }
         }
 
         expect(budget.employee_salaries).to eq(expected_hash)
