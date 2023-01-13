@@ -7,7 +7,6 @@ RSpec.describe Employee do
 		context '#initialize' do
 	    it 'exists' do
         expect(bobbi).to be_a Employee
-				
 			end
     end
   end
