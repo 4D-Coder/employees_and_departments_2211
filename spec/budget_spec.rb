@@ -8,6 +8,7 @@ RSpec.describe Budget do
 
   let(:department_1) { Department.new("Customer Service") }
   let(:department_2) { Department.new("Human Resources") }
+  let(:department_3) { Department.new("Information Technology") }
 
   let(:budget) { Budget.new('2023') }
 
@@ -41,14 +42,17 @@ RSpec.describe Budget do
 	    it 'can list all departments with expenses less than $500' do
         budget.add_department(department_1)
         budget.add_department(department_2)
+        budget.add_department(department_3)
 
         department_1.hire(bobbi)
         department_2.hire(dimitri)
+        department_3.hire(echo)
 
         department_1.employee_raise(bobbi, 499)
         department_2.employee_raise(dimitri, 500)
+        department_3.employee_raise(echo, 500)
 
-        expect(budget.lowest_expenses).to eq(department_1)
+        expect(budget.lowest_expenses).to eq([department_1, department_3])
       end
     end
   end
